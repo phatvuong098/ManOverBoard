@@ -10,9 +10,19 @@ public interface IStep
 
 public class PracticeStep : MonoBehaviour
 {
-    public IStep[] steps;
+    public GameObject[] goSteps;
+    private IStep[] steps;
 
     private int currentStep;
+
+    private void Awake()
+    {
+        steps = new IStep[goSteps.Length];
+        for (int i = 0; i < goSteps.Length; i++)
+        {
+            steps[i] = goSteps[i].GetComponent<IStep>();
+        }
+    }
 
     public void StartFirstStep()
     {
