@@ -44,7 +44,7 @@ public class ButtonHold : MonoBehaviour
 
     private void Update()
     {
-        if (isPressing)
+        if (isPressing && wasTrigger == false)
         {
             holdCounter += Time.deltaTime;
 

@@ -8,9 +8,9 @@ public class CaptainStepOne : MonoBehaviour, IStep
     [SerializeField] string indexStep;
     [SerializeField] string helpText;
 
-    PracticeStep practiceStep;
+    StepController practiceStep;
 
-    public virtual void Active(PracticeStep practiceStep)
+    public virtual void Active(StepController practiceStep)
     {
         this.practiceStep = practiceStep;
         for (int i = 0; i < outline.Length; i++)

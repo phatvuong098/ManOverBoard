@@ -21,42 +21,27 @@ public class QuestionController : MonoBehaviour
     public AudioClip correctClip;
     public AudioClip incorrectClip;
 
+    [Header("Reference")]
+    public GameObject wellcomePanel;
     public GameObject questionPanel;
-    public GameObject EndPanel;
+    public GameObject scorePanel;
+    public GameObject endPanel;
 
     private int currentIndex = 0;
     private QuestionData questionData;
+    private int[] userAnswers;
 
     public void StartQuestion(QuestionData questionData)
     {
-        questionPanel.SetActive(true);
-        EndPanel.SetActive(false);
+        wellcomePanel.SetActive(true);
+        questionPanel.SetActive(false);
+        scorePanel.SetActive(false);
+        endPanel.SetActive(false);
 
         this.questionData = questionData;
         this.currentIndex = 0;
+        this.userAnswers = new int[questionData.configs.Count];
         NextQuestion(this.questionData.configs[currentIndex]);
-    }
-
-    public void SelectAnswer(int answerIndex)
-    {
-        if (this.questionData.configs[currentIndex].rightAnswerIndex == answerIndex)
-        {
-            audioSource.PlayOneShot(correctClip);
-            if (currentIndex < this.questionData.configs.Count - 1)
-            {
-                currentIndex++;
-                NextQuestion(this.questionData.configs[currentIndex]);
-            }
-            else
-            {
-                questionPanel.SetActive(false);
-                EndPanel.SetActive(true);
-            }
-        }
-        else
-        {
-            audioSource.PlayOneShot(incorrectClip);
-        }
     }
 
     private void NextQuestion(QuestionDataConfig data)
@@ -73,9 +58,49 @@ public class QuestionController : MonoBehaviour
         imgAnswer4.sprite = data.answerSprite4;
     }
 
-    public void BTN_CloseQuestion()
+    public void BTN_SelectAnswer(int answerIndex)
+    {
+        userAnswers[currentIndex] = answerIndex;
+
+        if (currentIndex < this.questionData.configs.Count - 1)
+        {
+            currentIndex++;
+            NextQuestion(this.questionData.configs[currentIndex]);
+        }
+        else
+        {
+            questionPanel.SetActive(false);
+            scorePanel.SetActive(true);
+            scorePanel.GetComponent<ScorePanel>().Setup(userAnswers, questionData);
+        }
+
+        if (this.questionData.configs[currentIndex].rightAnswerIndex == answerIndex)
+        {
+            audioSource.PlayOneShot(correctClip);
+        }
+        else
+        {
+            audioSource.PlayOneShot(incorrectClip);
+        }
+    }
+
+    public void BTN_ShowQuestionPanel()
+    {
+        wellcomePanel.SetActive(false);
+        questionPanel.SetActive(true);
+    }
+
+    public void BTN_ShowEndPanel()
     {
         questionPanel.SetActive(false);
-        EndPanel.SetActive(false);
+        endPanel.SetActive(true);
+    }
+
+    public void BTN_CloseQuestion()
+    {
+        wellcomePanel.SetActive(false);
+        questionPanel.SetActive(false);
+        scorePanel.SetActive(false);
+        endPanel.SetActive(false);
     }
 }

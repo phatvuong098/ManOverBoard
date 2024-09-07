@@ -6,11 +6,9 @@ public class PhoneStep : CaptainStepOne, IStep
 {
     [SerializeField] GameObject panel;
 
-    public override void Active(PracticeStep practiceStep)
+    public override void Active(StepController practiceStep)
     {
         base.Active(practiceStep);
-
-        
     }
 
     public void OnGrabbed()

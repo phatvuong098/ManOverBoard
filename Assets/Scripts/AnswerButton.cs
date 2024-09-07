@@ -12,7 +12,7 @@ public class AnswerButton : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            questionController.SelectAnswer(answerIndex);
+            questionController.BTN_SelectAnswer(answerIndex);
         });
     }
 }

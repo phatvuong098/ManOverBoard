@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WellcomeStep : MonoBehaviour, IStep
+public class UI_Step : MonoBehaviour, IStep
 {
     [SerializeField] GameObject panel;
 
-    PracticeStep practiceStep;
+    StepController practiceStep;
 
-    public void Active(PracticeStep practiceStep)
+    public void Active(StepController practiceStep)
     {
         this.practiceStep = practiceStep;
         panel.SetActive(true);

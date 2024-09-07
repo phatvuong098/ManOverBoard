@@ -13,15 +13,25 @@ MonoBehaviour:
   m_Name: CaptainQuestionData
   m_EditorClassIdentifier: 
   configs:
-  - question: "Khi c\xF3 ng\u01B0\u1EDDi "
-    answer1: aaa
-    answer2: aaaa
-    answer3: aaaaa
-    answer4: aaaaaa
+  - question: "B\u1EA1n ph\u1EA3i l\xE0m g\xEC khi c\xF3 ng\u01B0\u1EDDi r\u01A1i
+      xu\u1ED1ng kh\u1ECFi t\xE0u?"
+    answer1: "G\u1ECDi thuy\u1EC1n tr\u01B0\u1EDFng v\xE0 th\xF4ng b\xE1o cho anh
+      ta v\u1EC1 ng\u01B0\u1EDDi r\u01A1i kh\u1ECFi t\xE0u"
+    answer2: "H\xE9t to \"Man Overboard\" v\xE0 n\xE9m phao c\u1EE9u sinh"
+    answer3: "N\xE9m phao c\u1EE9u sinh v\xE0 th\xF4ng b\xE1o cho ph\xF2ng m\xE1y"
+    answer4: "G\u1EEDi t\xEDn hi\u1EC7u \"PAN PAN PAN\" qua VHF \u1EDF chanel 16"
+    answerSprite1: {fileID: 0}
+    answerSprite2: {fileID: 0}
+    answerSprite3: {fileID: 0}
+    answerSprite4: {fileID: 0}
     rightAnswerIndex: 1
   - question: aaaaaaa
     answer1: aaa
     answer2: aaaa
     answer3: aaaaa
     answer4: aaaaaa
+    answerSprite1: {fileID: 0}
+    answerSprite2: {fileID: 0}
+    answerSprite3: {fileID: 0}
+    answerSprite4: {fileID: 0}
     rightAnswerIndex: 2
