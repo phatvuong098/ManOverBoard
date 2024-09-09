@@ -10,6 +10,7 @@ public class UI_Step : MonoBehaviour, IStep
 
     public void Active(StepController practiceStep)
     {
+        NotifyController.Instance.HideNotify();
         this.practiceStep = practiceStep;
         panel.SetActive(true);
     }

@@ -27,6 +27,9 @@ public class QuestionController : MonoBehaviour
     public GameObject scorePanel;
     public GameObject endPanel;
 
+    [SerializeField] private Transform questionDestination;
+    [SerializeField] private Transform originalDestination;
+
     private int currentIndex = 0;
     private QuestionData questionData;
     private int[] userAnswers;
@@ -42,6 +45,7 @@ public class QuestionController : MonoBehaviour
         this.currentIndex = 0;
         this.userAnswers = new int[questionData.configs.Count];
         NextQuestion(this.questionData.configs[currentIndex]);
+        GetComponent<TeleportUltilities>()?.TeleportPlayerToDestination(questionDestination);
     }
 
     private void NextQuestion(QuestionDataConfig data)
@@ -102,5 +106,6 @@ public class QuestionController : MonoBehaviour
         questionPanel.SetActive(false);
         scorePanel.SetActive(false);
         endPanel.SetActive(false);
+        GetComponent<TeleportUltilities>()?.TeleportPlayerToDestination(originalDestination);
     }
 }

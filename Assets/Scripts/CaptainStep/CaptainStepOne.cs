@@ -12,6 +12,12 @@ public class CaptainStepOne : MonoBehaviour, IStep
 
     public virtual void Active(StepController practiceStep)
     {
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        if(rigidbody != null )
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
+
         this.practiceStep = practiceStep;
         for (int i = 0; i < outline.Length; i++)
         {

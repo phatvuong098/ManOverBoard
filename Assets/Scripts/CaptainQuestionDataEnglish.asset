@@ -32,7 +32,7 @@ MonoBehaviour:
     answerSprite2: {fileID: 0}
     answerSprite3: {fileID: 0}
     answerSprite4: {fileID: 0}
-    rightAnswerIndex: 2
+    rightAnswerIndex: 1
   - question: What should the captain do in case of a MOB emergency?
     answer1: Cream "MAN OVERBOARD" and throw the lifebouy
     answer2: Maneuver the vessel to approach the MOB
@@ -42,4 +42,4 @@ MonoBehaviour:
     answerSprite2: {fileID: 0}
     answerSprite3: {fileID: 0}
     answerSprite4: {fileID: 0}
-    rightAnswerIndex: 2
+    rightAnswerIndex: 1
